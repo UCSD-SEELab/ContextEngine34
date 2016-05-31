@@ -13,7 +13,7 @@ sys.path.insert(1, os.path.join(sys.path[0], '../python'));
 
 ## Import your algorithms here.
 from Tesla import Tesla
-## from Knn import Knn
+from Knn import Knn
 from ContextEngineBase import Complexity
 
 ## For different tests, these values will vary.
@@ -29,7 +29,7 @@ inputReader = csv.reader(inputFile);
 outputReader = csv.reader(outputFile);
 
 ## Change the name of the algorithm to test it out.
-algorithmTest = Tesla(Complexity.firstOrder, 2, 0, [0, 0], {});
+algorithmTest = Knn(Complexity.firstOrder, 2, 0, [0, 0], {});
 teslaTimestamps = {};
 knnTimestamps = {};
 
@@ -42,12 +42,12 @@ for trainingSample in range(numTrainingSamples):
         output = float(outputRow[0]);
 
         firstTS = time.time();
-        teslaTest.addSingleObservation([input1, input2], output);
+        algorithmTest.addSingleObservation([input1, input2], output);
         secondTS = time.time();
         teslaTimestamps["load" + str(trainingSample)] = secondTS - firstTS;
 
 firstTS = time.time();
-teslaTest.train();
+algorithmTest.train();
 secondTS = time.time();
 teslaTimestamps["train"] = secondTS - firstTS;
 
@@ -61,7 +61,7 @@ for executeSample in range(numExecuteSamples):
         output = float(outputRow[0]);
 
         firstTS = time.time();
-        theor = teslaTest.execute([input1, input2]);
+        theor = algorithmTest.execute([input1, input2]);
         secondTS = time.time();
         teslaTimestamps["test" + str(executeSample)] = secondTS - firstTS;
         teslaTimestamps["delta" + str(executeSample)] = abs(output - theor);

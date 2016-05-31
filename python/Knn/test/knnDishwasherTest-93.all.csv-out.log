@@ -1,0 +1,7 @@
+K-Nearest Neighbor
+training latency = 0.439549
+test latency (total) = 8.600514
+test latency (avg) = 0.000597257916667
+MAE = 0.00622422222222
+RMSE = 0.0544771932147
+MBE = 7.18472222222e-05

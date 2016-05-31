@@ -1,21 +1,22 @@
 import numpy as np
 import math
+from ContextEngineBase import ContextEngineBase
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.neighbors import KNeighborsClassifier
 ## Implementation of the Knn algorithm: 
-class Knn:
+class Knn(ContextEngineBase):
 
-	complexity = 0;
+#	complexity = 0;
 
-	numInputs = 0;
+#	numInputs = 0;
 
-	discreteOutput = 0;
+	#discreteOutput = 0;
 
-	discreteInputs = [];
+	#discreteInputs = [];
 
 	#  Number of observations - a running count of the unique numbe of
     #  observations
-	numObservations = 0;
+#	numObservations = 0;
 
     # Matrix model - each row represents a new input vector
     #eg. x_Obs = array([[ 1.,  2.,  3.],
@@ -30,17 +31,16 @@ class Knn:
 	y_Test = np.empty([0]);
 
 	#trained result
-	knnRegressor = KNeighborsRegressor(n_neighbors=2, weights='uniform');
+	knnRegressor = None;
 	#knnClassifier = KNeighborsClassifier(n_neighbors=5);
 
-	def __init__(self, complexity, numInputs, discreteOutputs, discreteInputs):
-		self.complexity = complexity;
-		self.numInputs = numInputs;
-		self.discreteOutputs = discreteOutputs;
-		self.discreteInputs = discreteInputs;
+	def __init__(self, complexity, numInputs, outputClassifier, inputClassifiers, appFieldsDict):
+		ContextEngineBase.__init__(self,complexity, numInputs, outputClassifier, inputClassifiers, appFieldsDict)
+		#self.discreteOutputs = discreteOutputs;
+		#3sself.discreteInputs = discreteInputs;
 		self.x_Obs = np.empty([0,numInputs]);
 		self.x_Test = np.empty([0,numInputs]);
-
+		self.knnRegressor = KNeighborsRegressor(n_neighbors=self.complexity, weights='uniform');
 	#  Add a new training observation. Requirements: newInputObs must be a
     #  row array of size numInputs. newOutputObs must be a single value.
 	def addSingleObservation(self, newInputObs, newOutputObs): 
@@ -91,7 +91,7 @@ class Knn:
     		#x_Test = np.vstack((self.x_Test,inputObsVector));
 			x_Test = np.reshape(inputObsVector,(1,self.numInputs));
 			self.y_Test = self.knnRegressor.predict(x_Test);
-			return self.y_Test;
+			return self.y_Test[0];
 		else:
 			print("Wrong dimensions, fail to execute");
 			return None;
