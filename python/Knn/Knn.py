@@ -14,11 +14,11 @@ class Knn(ContextEngineBase):
     # Matrix model - each row represents a new input vector
     #eg. x_Obs = array([[ 1.,  2.,  3.],
     #   				[ 2.,  1.,  5.]])
-	x_Obs = np.empty([0, 0]);
+	x_Obs = []
 
 	# Output observation array
 	# eg. y = [0, 1]
-	y_Obs = np.empty([0]);
+	y_Obs = []
 
 	#x_Test = np.empty([0,0]);
 	y_Test = np.empty([0]);
@@ -33,13 +33,15 @@ class Knn(ContextEngineBase):
 		#3sself.discreteInputs = discreteInputs;
 		self.x_Obs = np.empty([0,numInputs]);
 		self.x_Test = np.empty([0,numInputs]);
-		self.knnRegressor = KNeighborsRegressor(n_neighbors=self.complexity, weights='uniform');
+		self.knnRegressor = KNeighborsRegressor(n_neighbors=self.complexity.value, weights='uniform');
 	#  Add a new training observation. Requirements: newInputObs must be a
     #  row array of size numInputs. newOutputObs must be a single value.
 	def addSingleObservation(self, newInputObs, newOutputObs): 
 		if (len(newInputObs) == self.numInputs and type(newOutputObs) not in (tuple, list)):
 			print("All good!");
 			self.x_Obs = np.vstack((self.x_Obs,newInputObs));
+			#self.y_Obs = np.append(self.y_Obs, newOutputObs);
+			#self.x_Obs = np.append(self.x_Obs, newInputObs);
 			self.y_Obs = np.append(self.y_Obs, newOutputObs);
 			self.numObservations += 1;
 		else:
