@@ -34,7 +34,7 @@ outputReader = csv.reader(outputFile);
 
 csv = recfromcsv(inputFilePath, delimiter=',')
 ## Change the name of the algorithm to test it out.
-algorithmTest = Knn(complexity, 7, 0, [0,0,0,0,0,0,0], {});
+algorithmTest = Knn(Complexity.secondOrder, 7, 0, [0,0,0,0,0,0,0], {});
 teslaTimestamps = {};
 knnTimestamps = {};
 
