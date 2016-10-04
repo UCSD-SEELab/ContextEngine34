@@ -28,8 +28,8 @@ from Tesla import Tesla
 from ContextEngineBase import Complexity
 
 ## Set your options here.
-inputFilePath = "3VGasesParksInput100.csv"
-outputFilePath = "GasesParksOutput100.csv"
+inputFilePath = "aqTestInput.csv"
+outputFilePath = "aqTestOutput.csv"
 #inputFilePath = "dummyInput.csv"
 #outputFilePath = "dummyOutput.csv"
 trainSetProportion = 0.80
