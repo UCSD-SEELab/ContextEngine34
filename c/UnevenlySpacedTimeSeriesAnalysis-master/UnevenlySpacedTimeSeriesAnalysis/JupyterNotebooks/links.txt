@@ -1,0 +1,12 @@
+https://oroboro.com/irregular-ema/
+
+median filter recommendation:
+http://stats.stackexchange.com/questions/56676/smoothing-algorithm-for-irregular-time-interval
+
+time series and forecasting.
+http://stats.stackexchange.com/questions/54987/time-series-analysis-and-forecasting
+
+Possible applications:
+https://en.wikipedia.org/wiki/Dynamic_time_warping
+Motivation:
+http://stats.stackexchange.com/questions/109343/dynamic-time-warping-for-irregular-time-series
