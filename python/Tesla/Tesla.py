@@ -190,10 +190,12 @@ class Tesla(ContextEngineBase):
     #  enough observations.
     def train(self):
         if (self.observationMatrix.shape[0] >= self.numNormalizedInputs):
-            print("Training started");
+            #print("Training started");
             self.coefficientVector = \
                 np.linalg.lstsq(self.observationMatrix, self.outputVector);
         else:
+            print("Observation matrix: ", str(self.observationMatrix.shape[0] ));
+            print("Normalized inputs needed: ", str(self.numNormalizedInputs));
             print("Not enough observations to train!");
     
     #  Returns True if the provided input vector and output observation already

@@ -17,9 +17,6 @@ import subprocess
 
 ## Append the paths to your algorithms here.
 sys.path.insert(1, os.path.join(sys.path[0], '../python/Tesla'));
-#sys.path.insert(1, os.path.join(sys.path[0], '../python/Knn'));
-#sys.path.insert(1, os.path.join(sys.path[0], '../python/ALPR'));
-#sys.path.insert(1, os.path.join(sys.path[0], '../python/VLR'));
 sys.path.insert(1, os.path.join(sys.path[0], '../python'));
 
 ## Import your algorithms here.
@@ -30,21 +27,27 @@ from ContextEngineBase import Complexity
 ## Set your options here.
 inputFilePath = "aqTestInput.csv"
 outputFilePath = "aqTestOutput.csv"
-#inputFilePath = "dummyInput.csv"
-#outputFilePath = "dummyOutput.csv"
 trainSetProportion = 0.80
 complexityOptions = [ Complexity.firstOrder, Complexity.secondOrder, Complexity.thirdOrder ]
 numTrials = 5
+inputMask = [1] * 100 # the don't care option
 
 cmd = "awk -F, '{print NF; exit}' " +inputFilePath
 p = subprocess.Popen(cmd,stdout=subprocess.PIPE, shell=True).communicate()
-numInputs = int(p[0].strip())
+numInputsAvailable = int(p[0].strip())
+
+if len(inputMask) != numInputsAvailable:
+	print("Input mask length does not match number of inputs provided, defaulting to all available inputs");
+	inputMask = [1] * numInputsAvailable
+
+numInputs = min(sum(inputMask), numInputsAvailable)
+
 cmd = "wc -l < " +inputFilePath
 p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True).communicate()
 numTotalSamples = int(p[0].strip())
 
-numTrainingSamples = int(numTotalSamples * trainSetProportion)
-numExecuteSamples = numTotalSamples - numTrainingSamples
+numTrainingSamples = int(numTotalSamples * trainSetProportion);
+numExecuteSamples = numTotalSamples - numTrainingSamples;
 
 print('Total samples: ',numTotalSamples, 'Training samples: ',numTrainingSamples, 'Test samples: ',numExecuteSamples)
 

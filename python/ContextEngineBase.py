@@ -148,7 +148,7 @@ class ContextEngineBase:
     #  enough observations.
     def train(self):
         if (self.observationMatrix.shape[0] >= self.numNormalizedInputs):
-            print("Training started");
+            #print("Training started");
             self.coefficientVector = \
                 np.linalg.lstsq(self.observationMatrix, self.outputVector);
         else:

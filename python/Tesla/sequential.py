@@ -7,14 +7,14 @@ from Tesla import Tesla
 
 
 # Tesla training objects
-kitchOut2Trainer = Tesla(order=2,numInputs=1);
-kitchOut3Trainer = Tesla(order=2,numInputs=1);
-kitchOut4Trainer = Tesla(order=2,numInputs=1);
-microwaveTrainer = Tesla(order=2,numInputs=1);
-oven01Trainer = Tesla(order=2,numInputs=1);
-oven02Trainer = Tesla(order=2,numInputs=1);
-refrigeratorTrainer = Tesla(order=2,numInputs=1);
-stoveTrainer = Tesla(order=2,numInputs=1);
+kitchOut2Trainer = Tesla(complexity=2,numInputs=1);
+kitchOut3Trainer = Tesla(complexity=2,numInputs=1);
+kitchOut4Trainer = Tesla(complexity=2,numInputs=1);
+microwaveTrainer = Tesla(complexity=2,numInputs=1);
+oven01Trainer = Tesla(complexity=2,numInputs=1);
+oven02Trainer = Tesla(complexity=2,numInputs=1);
+refrigeratorTrainer = Tesla(complexity=2,numInputs=1);
+stoveTrainer = Tesla(complexity=2,numInputs=1);
 
 # Pickle files for trained data
 kitchOut2PickleFilename = 'traces/kitch_out2_trained_order' + str(kitchOut2Trainer.functionOrder) + '.dat';
