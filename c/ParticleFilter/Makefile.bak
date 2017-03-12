@@ -1,0 +1,22 @@
+CCFLAGS = -O3
+CC = g++
+
+C = main.cc rng.cc history.cc simfunctions.cc
+H = smctc.hh sampler.hh particle.hh moveset.hh history.hh rng.hh
+
+PFC = sirTest.cc pffuncs.cc
+SMCC = rng.cc history.cc smc-exception.cc
+
+PFO = sirTest.o pffuncs.o
+PFH = pffuncs.hh 
+
+all: pf
+
+pf: $(PFC) $(PFH)
+	$(CC) $(CCFLAGS) -c $(PFC) $(SMCC)
+	$(CC) $(PFO) -opf
+
+clean:
+	-rm -f *.o
+	-rm -f *~
+	-rm -f pf
