@@ -1,5 +1,6 @@
 PARTICLE FILTER
-For running on a host machine (tested on ubuntu and macOS)
+For running on a host machine (as opposed to microcontroller)
+Tested on ubuntu and OSX
 
 Christine Chan 3-11-2017
 
