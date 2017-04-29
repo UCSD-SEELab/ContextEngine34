@@ -90,7 +90,6 @@ for i in range(numRow*day_predict, numRow*(day_predict+1)):
 	row = csv[i]
 	date = row[0]
 	power = row[1]
-
 	date = date.replace("/"," ")
 	date = date.replace(":"," ")
 	t = time.strptime(date, "%d %m %Y %H %M %S")

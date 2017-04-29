@@ -33,7 +33,7 @@ numExecuteSamples = 20;
 
 
 ## Change the name of the algorithm to test it out.
-KNN = KNNClassify (complexity=0, numInputs=11, discreteOutputs=0, discreteInputs=0)
+KNN = KNNClassify (Complexity.secondOrder, 11, 0, [0,0,0,0,0,0,0,0,0,0,0], {})
 KNNClassifyTimestamps = {};
 
 

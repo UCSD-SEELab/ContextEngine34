@@ -29,7 +29,7 @@ class Knn(ContextEngineBase):
 	knnRegressor = None;
 	#knnClassifier = KNeighborsClassifier(n_neighbors=5);
 
-	def __init__(self, complexity, n_neighborsumInputs, outputClassifier, inputClassifiers, appFieldsDict):
+	def __init__(self, complexity, numInputs, outputClassifier, inputClassifiers, appFieldsDict):
 		ContextEngineBase.__init__(self,complexity, numInputs, outputClassifier, inputClassifiers, appFieldsDict)
 		#self.discreteOutputs = discreteOutputs;
 		#3sself.discreteInputs = discreteInputs;
