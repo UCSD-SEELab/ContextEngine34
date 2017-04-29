@@ -16,9 +16,9 @@ sys.path.insert(1, os.path.join(sys.path[0], '../python'));
 
 
 ## Import your algorithms here.
-#from Tesla import Tesla
+from Tesla import Tesla
 #from Knn import Knn
-form Lin
+#form Lin
 from ContextEngineBase import Complexity
 
 ## For different tests, these values will vary.

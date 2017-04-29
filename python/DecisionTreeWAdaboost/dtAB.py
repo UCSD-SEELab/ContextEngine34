@@ -48,7 +48,7 @@ class DecisionTreeAB(ContextEngineBase):
 		if (self.numObservations > 0):
 			#print("Training started");
 			self.decTreeAB.fit(self.x_Obs, self.y_Obs.astype(str));
- 			return True;
+			return True;
 		else:
 			print("Not enough observations to train!");
 			return False;
